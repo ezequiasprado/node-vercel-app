@@ -1,13 +1,10 @@
-// index.js
 const express = require('express');
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+app.get('/', (req, res) => res.send('Home Page Route'));
+app.get('/about', (req, res) => res.send('About Page Route'));
+app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
+app.get('/contact', (req, res) => res.send('Contact Page Route'));
 
-app.get('/', (req, res) => {
-  res.send('Hello from Node.js on Vercel!');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Exporta como função (handler) para a Vercel
+module.exports = app;
